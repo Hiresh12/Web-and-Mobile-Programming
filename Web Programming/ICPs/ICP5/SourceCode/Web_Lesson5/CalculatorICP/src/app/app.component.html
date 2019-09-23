@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    button{
+      height: 100%;
+      width: 100%;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+
+</head>
+<body>
+
+<div>
+  <table border="1" style="width:500px;height:200px">
+    <tr>
+      <td colspan="4">
+        <span>{{equation}}</span><br>
+        <span>{{number}}</span></td>
+    </tr>
+    <tr>
+      <td><button (click)="butcick('1')">1</button></td>
+      <td><button (click)="butcick('2')">2</button></td>
+      <td><button  (click)="butcick('3')">3</button></td>
+      <td><button  (click)="butcick('/')">/</button></td>
+    </tr>
+    <tr>
+      <td><button  (click)="butcick('4')">4</button></td>
+      <td><button  (click)="butcick('5')">5</button></td>
+      <td><button  (click)="butcick('6')">6</button></td>
+      <td><button  (click)="butcick('*')">*</button></td>
+    </tr>
+    <tr>
+      <td><button  (click)="butcick('7')">7</button></td>
+      <td><button  (click)="butcick('8')">8</button></td>
+      <td><button  (click)="butcick('9')">9</button></td>
+      <td><button  (click)="butcick('+')">+</button></td>
+    </tr>
+    <tr>
+      <td><button  (click)="butcick('0')">0</button></td>
+      <td><button  (click)="butcick('=')">=</button></td>
+      <td><button style="background-color: red"  (click)="clear()">clear</button></td>
+      <td><button  (click)="butcick('-')">-</button></td>
+    </tr>
+  </table>
+</div>
+</body>
+</html>
