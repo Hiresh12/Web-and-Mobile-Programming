@@ -17,7 +17,7 @@ public class HomePage extends AppCompatActivity {
     final int COFFEE_PRICE = 5;
     final int WHIPPED_CREAM_PRICE = 1;
     final int CHOCOLATE_PRICE = 2;
-    int quantity = 3;
+    int quantity = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +90,8 @@ public class HomePage extends AppCompatActivity {
 
     private String createOrderSummary(String userInputName, boolean hasWhippedCream, boolean hasChocolate, float price) {
         String orderSummaryMessage = "Name:"+userInputName + "\n" +
-                "Add Whipped Cream? "+boolToString(hasWhippedCream) + "\n" +
-                "Add chocolate? "+boolToString(hasChocolate) + "\n" +
+                "Add Onions? "+boolToString(hasWhippedCream) + "\n" +
+                "Add Chicken? "+boolToString(hasChocolate) + "\n" +
                 "Quantity: "+quantity + "\n" +
                 "Total: $ "+ price + "\n" +
                 getString(R.string.thank_you);
