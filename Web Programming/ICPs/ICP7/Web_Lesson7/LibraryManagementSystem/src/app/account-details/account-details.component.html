@@ -1,0 +1,89 @@
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/homePage',username]" href="#">Home</a>
+      </li>
+    </ul>
+    <a class="nav-link" [routerLink]="['/userlogin']" href="#">Logout</a>
+  </div>
+</nav>
+<div style="margin-top: 5%">
+<div *ngIf="!isJoint">
+<mat-card class="example-card">
+  <mat-card-header style="margin-left: -3%">
+    <mat-card-title><h2>Account Number:{{Account.AccountNumber}}</h2></mat-card-title>
+    <mat-card-subtitle>UserID: {{Account.username}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <dl>
+      <dt>Type:</dt>
+      <dd>{{Account.Type}}</dd>
+      <dt>Balance:</dt>
+      <dd>{{Account.Balance}}</dd>
+    </dl>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button color="warn" (click)="doTransaction(Account.AccountNumber)">do Transaction</a>
+  </mat-card-actions>
+</mat-card>
+</div>
+<div *ngIf="isJoint">
+  <mat-card style="width: 50%" class="example-card">
+    <div></div>
+    <div style="float: left">
+    <mat-card-header style="margin-left: -3%">
+      <mat-card-title><h2>Account Number: {{Account.AccountNumber}}</h2></mat-card-title>
+      <mat-card-subtitle>UserID: {{Account.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Type:</dt>
+        <dd>{{Account.Type}}</dd>
+        <dt>Balance:</dt>
+        <dd>{{Account.Balance}}</dd>
+      </dl>
+    </mat-card-content>
+    </div>
+    <div style="float: right">
+    <mat-card-header style="margin-left: -3%">
+      <mat-card-title><h2>Account Number: {{Account1.AccountNumber}}</h2></mat-card-title>
+      <mat-card-subtitle>UserID: {{Account1.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <dl>
+        <dt>Type:</dt>
+        <dd>{{Account1.Type}}</dd>
+        <dt>Balance:</dt>
+        <dd>{{Account1.Balance}}</dd>
+      </dl>
+    </mat-card-content>
+    </div>
+    <div>
+    <mat-card-actions>
+      <a mat-raised-button color="warn" (click)="doTransaction(JointAccountNumber)"> Make Transaction</a>
+    </mat-card-actions>
+    </div>
+  </mat-card>
+</div>
+<div style="color: whitesmoke;font-size: 15px">
+  Transactions:
+</div>
+  <div>
+
+  <mat-card style="float: left;margin-left: 1%" *ngFor="let trans of Transactions" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Transaction Details</mat-card-title>
+      <mat-card-subtitle>Account Number:{{JointAccountNumber}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      TransactionID <span>{{trans.TransactionID}}</span><br>
+      Type <span>{{trans.Type}}</span> <br>
+      Date <span>{{trans.Date| date:'yyyy-MM-dd HH:mm:ss'}}</span><br>
+      Amount <span>${{trans.Amount}}</span>
+    </mat-card-content>
+  </mat-card>
+</div>
+</div>

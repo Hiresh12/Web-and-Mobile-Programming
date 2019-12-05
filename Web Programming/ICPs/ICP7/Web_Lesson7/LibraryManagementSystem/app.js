@@ -5,11 +5,23 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mean-angular6')
-  .then(() => console.log('connection successful'))
-  .catch((err) => console.error(err));
 
-var apiRouter = require('./routes/book');
+mongoose.connect('mongodb://Hiresh12:Hraccount2k19@ds151383.mlab.com:51383/home_security',
+  {useNewUrlParser: true },function(err){
+    if(err) {
+      console.log('Some problem with the connection ' +err);
+    } else {
+      console.log('The Mongoose connection is ready');
+    }
+  });
+// mongoose.connect('mongodb://Hiresh12:Hraccount2k19@ds151383.mlab.com:51383/home_security')
+//   .then(() => console.log('connection successful'))
+//   .catch((err) => console.error(err));
+
+var userRouter = require('./routes/Users');
+var accountRouter = require('./routes/AccountDetails');
+var transactionRouter = require('./routes/Transactions');
+var jointaccountRouter = require('./routes/JointAccountDetails');
 
 var app = express();
 
@@ -17,11 +29,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/books', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-details/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-create', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/book-edit/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
-app.use('/api', apiRouter);
+app.use('/homePage', express.static(path.join(__dirname, 'dist/mean-angular6')));
+
+
+app.use('/user',userRouter)
+app.use('/account',accountRouter)
+app.use('/transaction',transactionRouter)
+app.use('/jointaccount',jointaccountRouter)
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

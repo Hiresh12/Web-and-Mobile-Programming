@@ -7,6 +7,10 @@ const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };
 const apiUrl = '/api';
+const userUrl = '/user';
+const accountUrl = '/account';
+const transactionUrl = '/transaction';
+const jointaccountUrl = '/jointaccount';
 
 @Injectable({
   providedIn: 'root'
@@ -36,44 +40,86 @@ export class ApiService {
     return body || {};
   }
 
-  getBooks(): Observable<any> {
-    return this.http.get(apiUrl, httpOptions).pipe(
+  getAccount(id: string): Observable<any> {
+    const url = `${accountUrl}/${id}`;
+    return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
-
-  getBook(id: string): Observable<any> {
-    const url = `${apiUrl}/${id}`;
+  getJointAccount(id: string): Observable<any> {
+    const url = `${jointaccountUrl}/${id}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  getTransactions(id: string): Observable<any> {
+    console.log('get all trans');
+    const url = `${transactionUrl}/${id}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+  getJointAccountByUser(id: string): Observable<any> {
+    console.log('get all accounts');
+    const url = `${jointaccountUrl}/userid/${id}`;
     return this.http.get(url, httpOptions).pipe(
       map(this.extractData),
       catchError(this.handleError));
   }
 
-  postBook(data): Observable<any> {
-    return this.http.post(apiUrl, data, httpOptions)
-      .pipe(
-        catchError(this.handleError)
-      );
+  getAccountByUser(id: string): Observable<any> {
+    console.log('get all accounts');
+    const url = `${accountUrl}/userid/${id}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
-  putBook(data): Observable<any> {
-    return this.http.put(apiUrl, data, httpOptions)
-      .pipe(
-        catchError(this.handleError)
-      );
-  }
-  updateBook(id: string, data): Observable<any> {
-    const url = `${apiUrl}/${id}`;
-    return this.http.put(url, data, httpOptions)
+
+  createUser(data): Observable<any> {
+    return this.http.post(userUrl, data, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
 
-  deleteBook(id: string): Observable<{}> {
+  postAccount(data): Observable<any> {
+    return this.http.post(accountUrl, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
+
+  postJointAccount(data): Observable<any> {
+    return this.http.post(jointaccountUrl, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
+
+  postTransaction(data): Observable<any> {
+    console.log('add1',data);
+    return this.http.post(transactionUrl, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+
+  }
+  checkLogin(data): Observable<any> {
+    console.log('login')
+    const url = `${userUrl}/${data.username}`;
+    return this.http.get(url, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
+  }
+
+
+  /*deleteBook(id: string): Observable<{}> {
     const url = `${apiUrl}/${id}`;
     return this.http.delete(url, httpOptions)
       .pipe(
         catchError(this.handleError)
       );
-  }
+  }*/
 }

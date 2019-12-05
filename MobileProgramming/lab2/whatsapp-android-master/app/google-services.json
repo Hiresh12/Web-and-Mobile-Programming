@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "147985214207",
+    "firebase_url": "https://lab2whatsapp.firebaseio.com",
+    "project_id": "lab2whatsapp",
+    "storage_bucket": "lab2whatsapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147985214207:android:d4c54fecf2dec927313aca",
+        "android_client_info": {
+          "package_name": "in.co.madhur.chatbubblesdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147985214207-m9f3jt4kravitnm0fa2e2cqk36c4784e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAhDRIAtZ9m86naoYiEhuAR7U4ZSd_qdK8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "147985214207-m9f3jt4kravitnm0fa2e2cqk36c4784e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

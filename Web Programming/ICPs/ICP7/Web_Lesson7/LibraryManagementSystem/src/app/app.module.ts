@@ -5,10 +5,6 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RouterModule, Routes } from '@angular/router';
-import { BookComponent } from './book/book.component';
-import { BookDetailComponent } from './book-detail/book-detail.component';
-import { BookCreateComponent } from './book-create/book-create.component';
-import { BookEditComponent } from './book-edit/book-edit.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import {
@@ -21,30 +17,34 @@ import {
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule } from '@angular/material';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { AccountDetailsComponent } from './account-details/account-details.component';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 const appRoutes: Routes = [
   {
-    path: 'books',
-    component: BookComponent,
-    data: { title: 'Book List' }
+    path: 'userRegister',
+    component: UserRegisterComponent,
+    data: { title: 'Register' }
   },
   {
-    path: 'book-details/:id',
-    component: BookDetailComponent,
-    data: { title: 'Book Details' }
+    path: 'userlogin',
+    component: UserLoginComponent,
+    data: { title: 'Login' }
   },
   {
-    path: 'book-create',
-    component: BookCreateComponent,
-    data: { title: 'Create Book' }
+    path: 'homePage/:id',
+    component: HomePageComponent,
+    data: { title: 'Welcome' }
   },
   {
-    path: 'book-edit/:id',
-    component: BookEditComponent,
-    data: { title: 'Edit Book' }
+    path: 'account-details/:id',
+    component: AccountDetailsComponent,
+    data: { title: 'Account Details' }
   },
   { path: '',
-    redirectTo: '/books',
+    redirectTo: '/userlogin',
     pathMatch: 'full'
   }
 ];
@@ -52,10 +52,10 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    BookComponent,
-    BookDetailComponent,
-    BookCreateComponent,
-    BookEditComponent
+    UserLoginComponent,
+    HomePageComponent,
+    AccountDetailsComponent,
+    UserRegisterComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
