@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item"><a class="nav-link" [routerLink]="['/homePage',username]" href="#">Home</a>
+      </li>
+    </ul>
+    <a class="nav-link" [routerLink]="['/userlogin']" href="#">Logout</a>
+  </div>
+</nav>
+<div style="margin-top: 5%;color: whitesmoke">
+<div style="" *ngIf="showCreate">
+  <button class="mat-button" (click)="CreateAccount()">Create Account</button>
+</div>
+
+<div>
+  Create Joint Account:
+  <br>
+ <span>Enter Account To be linked</span>
+  <input type="text" placeholder="Enter Account Number" [(ngModel)]="accountnumber" name="accountnumber">
+  <button class="mat-button" (click)="CreateJointAccount()">Create Joint Account</button>
+</div>
+<!--<div>
+  Accounts:
+  <div *ngFor="let account of Accounts">
+    <div>Account Number <a (click)="ViewAccount(account['AccountNumber'])"> {{account['AccountNumber']}}</a></div>
+  </div>
+</div>
+
+<div>
+  Joint Accounts:
+  <div *ngFor="let account of JointAccount">
+    <div>Account Number <a (click)="ViewAccount(account['JointAccountNumber'])"> {{account['JointAccountNumber']}}</a></div>
+  </div>
+</div>-->
+
+<mat-card  *ngFor="let account of Accounts" class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Account Details</mat-card-title>
+    <mat-card-subtitle>Account Number:{{account['AccountNumber']}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    Type: {{account['Type']}} <br>
+    Balance:{{account['Balance']}}
+  </mat-card-content>
+  <mat-card-actions>
+    <button style="background-color: antiquewhite" (click)="ViewAccount(account['AccountNumber'])" mat-button>View</button>
+  </mat-card-actions>
+</mat-card>
+  <div>
+  <mat-card style="float: left;margin-left: 1%"  *ngFor="let account of JointAccount" class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>Joint Account Details</mat-card-title>
+      <mat-card-subtitle>Account Number:{{account['JointAccountNumber']}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      Type: Joint Account <br>
+      Balance:$10000
+    </mat-card-content>
+    <mat-card-actions>
+      <button style="background-color: antiquewhite" (click)="ViewAccount(account['JointAccountNumber'])" mat-button>View</button>
+    </mat-card-actions>
+  </mat-card>
+  </div>
+</div>

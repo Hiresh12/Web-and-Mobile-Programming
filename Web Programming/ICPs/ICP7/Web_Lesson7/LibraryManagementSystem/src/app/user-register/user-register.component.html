@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <h2> Account System Management</h2>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<div>
+  <form style="margin-top: 5%;margin-left: 17%" class="text-center border col-md-4 p-5 border-light" [formGroup]="registerForm" (submit)="onRegisterSubmit(registerForm.value)" >
+    <p class="h4 mb-4">Sign up</p>
+    <div class="form-group mb-4">
+
+      <input type="text" formControlName="name" name="name" class="form-control  mb-4" id="name" placeholder="Enter Name">
+    </div>
+    <div class="form-group mb-4">
+
+      <input type="text" formControlName="username" name="username" class="form-control mb-4" id="username" placeholder="Enter Username">
+    </div>
+    <div class="form-group mb-4">
+
+      <input type="email" formControlName="email" name="email" class="form-control mb-4" id="email" aria-describedby="emailHelp" placeholder="Enter Email">
+    </div>
+    <div class="form-group mb-4">
+
+      <input type="password" formControlName="password" name="password" class="form-control mb-4" id="password" placeholder=" Enter Password">
+    </div>
+    <div class="form-group mb-4">
+    <input type="submit" class="btn btn-primary" value="Submit">
+      <div class="form-group mb-4">
+      <a style="color: antiquewhite" [routerLink]="['/userlogin']"> Login</a>
+      </div>
+    </div>
+  </form>
+</div>

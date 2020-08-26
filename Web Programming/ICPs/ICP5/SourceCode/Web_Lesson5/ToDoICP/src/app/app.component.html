@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>ToDo</title>
+
+</head>
+<body style="height: 100%">
+<div style="margin-left: 300px"><h2>To Do App</h2></div>
+<br>
+<br>
+<br>
+<input style="margin-left: 100px" name="listname" #listname ngModel type="text"><button (click)="submitNewItem(listname.value)">Add</button>
+<br>
+<br>
+<br>
+<table style="width: 50%;margin-left: 100px" border="1">
+  <tr>
+    <td>
+      task
+    </td>
+    <td>delete</td>
+  </tr>
+  <tr *ngFor="let item of items">
+    <td>
+  <span>{{item}}</span></td><td><button (click)="deleteItem(item)">delete</button></td>
+  </tr>
+</table>
+</body>
+</html>
